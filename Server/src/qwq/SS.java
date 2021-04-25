@@ -1,11 +1,9 @@
 package qwq;
 
-import com.sun.security.ntlm.Server;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -111,9 +109,8 @@ class Sender extends Thread{
     public void run(){
         try {
             while(true){
-
+                String mess = scanner.next();
                 for(Socket tempSocket : SS.archiveSocketList){
-                        String mess = scanner.next();
                         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(tempSocket.getOutputStream()));
                         bw.write("[Server]"+mess+"\n");
                         bw.flush();

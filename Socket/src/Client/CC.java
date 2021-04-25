@@ -6,13 +6,23 @@ import java.net.UnknownHostException;
 import java.util.Scanner;
 
 public class CC{
+    public static Socket s;
     public static void main(String[] args){
     Scanner scanner = new Scanner(System.in);
         try{
-            System.out.print("输入目标服务器ip地址和端口号：");
-            String ip = scanner.next();
-            String ips[] = ip.split(":");
-            Socket s = new Socket(ips[0],Integer.parseInt(ips[1]));
+
+            System.out.println("连接方式：\n输入服务器ip请按1\n使用服务器1请按2");
+            String flag = scanner.next();
+            if(flag.equalsIgnoreCase("1")){
+                System.out.print("输入目标服务器ip地址和端口号：");
+                String ip = scanner.next();
+                String ips[] = ip.split(":");
+                s = new Socket(ips[0],Integer.parseInt(ips[1]));
+            } else if(flag.equalsIgnoreCase("2")){
+                s = new Socket("mconce.cn",10144);
+            }
+
+
             ThreadHelper listener = new ThreadHelper(s);
             Sender sender = new Sender(s);
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(s.getOutputStream()));
@@ -67,7 +77,7 @@ class Sender extends Thread{
             try {
                 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(sender.getOutputStream()));
                 String mess = scanner.next();
-                bw.write(sender.getInetAddress().getLocalHost()+"说"+mess+"\n");
+                bw.write(sender.getInetAddress().getLocalHost()+"说： "+mess+"\n");
                 bw.flush();
             } catch (IOException e) {
                 e.printStackTrace();
