@@ -19,9 +19,9 @@ public class CC{
             BufferedReader reader = new BufferedReader(new InputStreamReader(s.getInputStream()));
             listener.start();
             sender.start();
-            writer.write("Successfully Connected\n");
+            writer.write(s.getInetAddress().getLocalHost()+"加入聊天室\n");
             writer.flush();
-            System.out.println("收到来自服务器的消息："+reader.readLine());
+            System.out.println(reader.readLine());
         } catch (UnknownHostException e) {
             e.printStackTrace();
 
@@ -45,10 +45,10 @@ class ThreadHelper extends Thread{// Get Information
                 try {
                     while(true) {
                         BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
-                        System.out.println("收到来自服务器的消息："+br.readLine());
+                        System.out.println(br.readLine());
                     }
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    System.out.println("[错误]原因:目标计算机已关闭或拒绝连接");
                 }
 
         }
@@ -67,7 +67,7 @@ class Sender extends Thread{
             try {
                 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(sender.getOutputStream()));
                 String mess = scanner.next();
-                bw.write(mess+"\n");
+                bw.write(sender.getInetAddress().getLocalHost()+"说"+mess+"\n");
                 bw.flush();
             } catch (IOException e) {
                 e.printStackTrace();
