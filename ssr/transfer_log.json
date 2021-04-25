@@ -1,0 +1,26 @@
+{
+	"xgd-01.ddns-only.xyz" : {
+		"totalUploadBytes" : 35346308,
+		"totalDownloadBytes" : 713721066
+	},
+	"linode-zy.ddns-only.xyz" : {
+		"totalUploadBytes" : 16350063,
+		"totalDownloadBytes" : 196341917
+	},
+	"youyun-gd-02.ddns-only.xyz" : {
+		"totalUploadBytes" : 74850290,
+		"totalDownloadBytes" : 1877207207
+	},
+	"niuniu-shlt-01.ddns-only.xyz" : {
+		"totalUploadBytes" : 759399,
+		"totalDownloadBytes" : 10209858
+	},
+	"youyun-gd-xg-01.ddns-only.xyz" : {
+		"totalUploadBytes" : 35113859,
+		"totalDownloadBytes" : 789346653
+	},
+	"youyun-gd-01.ddns-only.xyz" : {
+		"totalUploadBytes" : 12282,
+		"totalDownloadBytes" : 0
+	}
+}
